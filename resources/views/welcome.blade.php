@@ -140,7 +140,7 @@
       <a href="index3.html" class="brand-link">
         <img src="{{ asset('backend/dist/img/AdminLTELogo.png')}}" alt="AdminLTE Logo" class="brand-image img-circle elevation-3"
             style="opacity: .8">
-        <span class="brand-text font-weight-light">AdminLTE 3</span>
+        <span class="brand-text font-weight-light">PT. PSG</span>
       </a>
 
       <!-- Sidebar -->
@@ -193,7 +193,7 @@
             </li>
             <li class="nav-item has-treeview">
               <a href="#" class="nav-link">
-                <i class="nav-icon fas fa-users"></i>
+                <i class="nav-icon fas fa-shipping-fast"></i>
                 <p>
                   Data Supplier
                   <i class="right fas fa-angle-left"></i>
@@ -216,7 +216,7 @@
             </li>
             <li class="nav-item has-treeview">
               <a href="#" class="nav-link">
-                <i class="nav-icon fas fa-users"></i>
+                <i class="nav-icon fas fa-sitemap"></i>
                 <p>
                   Data Kategori
                   <i class="right fas fa-angle-left"></i>
