@@ -14,6 +14,20 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware('auth:api')->get('/user', function (Request $request) {
-    return $request->user();
+Route::group([
+
+    'middleware' => 'api',
+    'prefix' => 'auth'
+
+], function ($router) {
+
+    Route::post('login', 'API\AuthController@login');
+    Route::post('signup', 'API\AuthController@signUp');
+    Route::post('logout', 'API\AuthController@logout');
+    Route::post('refresh', 'API\AuthController@refresh');
+    Route::post('me', 'API\AuthController@me');
 });
+
+Route::apiResource('employees', 'API\EmployeeController');
+Route::apiResource('suppliers', 'API\SupplierController');
+Route::apiResource('categories', 'API\CategoryController');

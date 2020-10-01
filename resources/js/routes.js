@@ -1,18 +1,44 @@
-import Vue from 'vue';
-import VueRouter from 'vue-router';
+// Routes auth
+let Login = require('./components/auth/login.vue').default;
+let Register = require('./components/auth/register.vue').default;
+let Forget = require('./components/auth/forget.vue').default;
+let Logout = require('./components/auth/logout.vue').default;
 
-import Login from './components/auth/login.vue';
-import Register from './components/auth/register.vue';
 
-Vue.use(VueRouter)
+let Home = require('./components/home.vue').default;
 
-const router = new VueRouter({
-  mode: 'history',
-  routes: [
-    { path: '/', name: 'login', component: Login },
-    { path: '/register', name: 'register', component: Register }
-  ]
+//Employee Routes
+let ShowEmployees = require('./components/employees/index.vue').default;
+let StoreEmployees = require('./components/employees/create.vue').default;
+let EditEmployees = require('./components/employees/edit.vue').default;
 
-})
+//Suppliers Routes
+let ShowSuppliers = require('./components/suppliers/index.vue').default;
+let StoreSuppliers = require('./components/suppliers/create.vue').default;
+let EditSuppliers = require('./components/suppliers/edit.vue').default;
 
-export default router
+//Categories Routes
+let ShowCategories = require('./components/categories/index.vue').default;
+let StoreCategories = require('./components/categories/create.vue').default;
+let EditCategories = require('./components/categories/edit.vue').default;
+
+
+export const routes = [
+  { path: '/', component: Login, name: 'login' },
+  { path: '/register', component: Register, name: 'register' },
+  { path: '/forget', component: Forget, name: 'forget' },
+  { path: '/logout', component: Logout, name: 'logout' },
+  { path: '/home', component: Home, name: 'home' },
+
+  { path: '/employees', component: ShowEmployees, name: 'show-employees' },
+  { path: '/employees/create', component: StoreEmployees, name: 'store-employees' },
+  { path: '/employees/:id', component: EditEmployees, name: 'edit-employees' },
+
+  { path: '/suppliers', component: ShowSuppliers, name: 'show-suppliers' },
+  { path: '/suppliers/create', component: StoreSuppliers, name: 'store-suppliers' },
+  { path: '/suppliers/:id', component: EditSuppliers, name: 'edit-suppliers' },
+
+  { path: '/categories', component: ShowCategories, name: 'show-categories' },
+  { path: '/categories/create', component: StoreCategories, name: 'store-categories' },
+  { path: '/categories/:id', component: EditCategories, name: 'edit-categories' },
+]

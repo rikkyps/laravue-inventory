@@ -13,6 +13,6 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/{any}', function () {
+Route::get('/{vue_capture?}', function(){
     return view('welcome');
-})->where('any', '.*');
+})->where('vue_capture', '[\/\w\.-]*');
