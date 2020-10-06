@@ -237,6 +237,29 @@
                 </li>
               </ul>
             </li>
+            <li class="nav-item has-treeview">
+              <a href="#" class="nav-link">
+                <i class="nav-icon fas fa-cart-plus"></i>
+                <p>
+                  Data Produk
+                  <i class="right fas fa-angle-left"></i>
+                </p>
+              </a>
+              <ul class="nav nav-treeview">
+                <li class="nav-item">
+                  <router-link :to="{ name: 'store-items' }" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>Add Produk</p>
+                  </router-link>
+                </li>
+                <li class="nav-item">
+                  <router-link :to="{ name: 'show-items' }" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>Semua Produk</p>
+                  </router-link>
+                </li>
+              </ul>
+            </li>
             <li class="nav-item">
               <a href="pages/widgets.html" class="nav-link">
                 <i class="nav-icon fas fa-th"></i>

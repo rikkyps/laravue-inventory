@@ -22,6 +22,11 @@ let ShowCategories = require('./components/categories/index.vue').default;
 let StoreCategories = require('./components/categories/create.vue').default;
 let EditCategories = require('./components/categories/edit.vue').default;
 
+//Items Routes
+let ShowItems = require('./components/items/index.vue').default;
+let StoreItems = require('./components/items/create.vue').default;
+let EditItems = require('./components/items/edit.vue').default;
+
 
 export const routes = [
   { path: '/', component: Login, name: 'login' },
@@ -41,4 +46,8 @@ export const routes = [
   { path: '/categories', component: ShowCategories, name: 'show-categories' },
   { path: '/categories/create', component: StoreCategories, name: 'store-categories' },
   { path: '/categories/:id', component: EditCategories, name: 'edit-categories' },
+
+  { path: '/items', component: ShowItems, name: 'show-items' },
+  { path: '/items/create', component: StoreItems, name: 'store-items' },
+  { path: '/items/:id', component: EditItems, name: 'edit-items' },
 ]

@@ -28,6 +28,8 @@
         "sweetalert2": "^10.3.3",
         "vform": "^1.0.1",
         "vue-progressbar": "^0.7.5",
-        "vue-router": "^3.4.3"
+        "vue-router": "^3.4.3",
+        "vue2-datepicker": "^3.6.2",
+        "vuejs-datepicker": "^1.6.2"
     }
 }
