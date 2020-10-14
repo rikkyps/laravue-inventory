@@ -36,6 +36,7 @@ class EmployeeController extends Controller
             'gender' => 'required',
             'umur' => 'required',
             'phone' => 'required',
+            'sallary' => 'required',
             'joindate' => 'required',
             'address' => 'required'
         ]);
@@ -90,6 +91,7 @@ class EmployeeController extends Controller
             'gender' => 'required',
             'umur' => 'required',
             'phone' => 'required',
+            'sallary' => 'required',
             'joindate' => 'required',
             'address' => 'required'
         ]);

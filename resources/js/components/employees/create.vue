@@ -106,6 +106,12 @@
                   </div>
                  </div>
                 </div>
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <input type="number" class="form-control" v-model="form.sallary" :class="{ 'is-invalid' : form.errors.has('sallary') }" placeholder="Besaran Gaji">
+                    <has-error :form="form" field="sallary"></has-error>
+                  </div>
+                </div>
               </div>
               <div class="form-group">
                 <textarea v-model="form.address" class="form-control" cols="15" rows="5" placeholder="Alamat" :class="{ 'is-invalid': form.errors.has('address') }"></textarea>
@@ -144,6 +150,7 @@ export default {
         gender: null,
         umur: null,
         phone: null,
+        sallary: null,
         joindate: null,
         photo: null,
         address: null

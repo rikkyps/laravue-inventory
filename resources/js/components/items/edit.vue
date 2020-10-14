@@ -41,6 +41,7 @@
                   <div class="form-group">
                     <label for="" class="control-label">Nama Produk</label>
                     <input type="text" class="form-control" v-model="form.name">
+                    <small class="text-danger" v-if="errors.name">{{ errors.name[0] }}</small>
                   </div>
                 </div>
               </div>
@@ -51,6 +52,7 @@
                     <select v-model="form.category_id" class="form-control">
                       <option :value="category.id" v-for="category in categories" :key="category.id">{{ category.name }}</option>
                     </select>
+                    <small class="text-danger" v-if="errors.category_id">{{ errors.nacategory_id[0] }}</small>
                   </div>
                 </div>
                 <div class="col-md-6">
@@ -59,6 +61,7 @@
                     <select v-model="form.supplier_id" class="form-control">
                       <option :value="supplier.id" v-for="supplier in suppliers" :key="supplier.id">{{ supplier.shopname }}</option>
                     </select>
+                    <small class="text-danger" v-if="errors.supplier_id">{{ errors.supplier_id[0] }}</small>
                   </div>
                 </div>
               </div>
@@ -73,12 +76,14 @@
                   <div class="form-group">
                     <label for="" class="control-label">Harga Beli</label>
                     <input type="number" v-model="form.buyPrice" class="form-control">
+                    <small class="text-danger" v-if="errors.buyPrice">{{ errors.buyPrice[0] }}</small>
                   </div>
                 </div>
                 <div class="col-md-4">
                   <div class="form-group">
                     <label for="" class="control-label">Harga Jual</label>
                     <input type="number" v-model="form.sellPrice" class="form-control">
+                    <small class="text-danger" v-if="errors.sellPrice">{{ errors.sellPrice[0] }}</small>
                   </div>
                 </div>
               </div>
@@ -86,13 +91,15 @@
                 <div class="col-md-4">
                   <div class="form-group">
                     <label for="" class="control-label">Tanggal Pembelian</label><br>
-                    <date-picker v-model="form.buyDate" type="date" placeholder="Tanggal Beli" input-class="form-control" format="YYYY-MM-DD" value-type="format"></date-picker>
+                    <date-picker v-model="form.buyDate" type="date" placeholder="Tanggal Beli" input-class="form-control" format="YYYY-MM-DD" value-type="format"></date-picker><br>
+                    <small class="text-danger" v-if="errors.buyDate">{{ errors.buyDate[0] }}</small>
                   </div>
                 </div>
                 <div class="col-md-4">
                   <div class="form-group">
                     <label for="" class="control-label">Stok Barang</label>
                     <input type="number" class="form-control" v-model="form.qty">
+                    <small class="text-danger" v-if="errors.qty">{{ errors.qty[0] }}</small>
                   </div>
                 </div>
                 <div class="col-md-4">

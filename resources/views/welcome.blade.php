@@ -260,6 +260,52 @@
                 </li>
               </ul>
             </li>
+            <li class="nav-item has-treeview">
+              <a href="#" class="nav-link">
+                <i class="nav-icon fas fa-dollar-sign"></i>
+                <p>
+                  Data Pengeluaran
+                  <i class="right fas fa-angle-left"></i>
+                </p>
+              </a>
+              <ul class="nav nav-treeview">
+                <li class="nav-item">
+                  <router-link :to="{ name: 'store-expenses' }" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>Add Pengeluaran</p>
+                  </router-link>
+                </li>
+                <li class="nav-item">
+                  <router-link :to="{ name: 'show-expenses' }" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>Semua Pengeluaran</p>
+                  </router-link>
+                </li>
+              </ul>
+            </li>
+            <li class="nav-item has-treeview">
+              <a href="#" class="nav-link">
+                <i class="nav-icon fas fa-money-check-alt"></i>
+                <p>
+                  Data Gaji
+                  <i class="right fas fa-angle-left"></i>
+                </p>
+              </a>
+              <ul class="nav nav-treeview">
+                <li class="nav-item">
+                  <router-link :to="{ name: 'given-sallaries' }" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>Add Gaji</p>
+                  </router-link>
+                </li>
+                <li class="nav-item">
+                  <router-link :to="{ name: 'all-sallaries' }" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>Semua Data Gaji</p>
+                  </router-link>
+                </li>
+              </ul>
+            </li>
             <li class="nav-item">
               <a href="pages/widgets.html" class="nav-link">
                 <i class="nav-icon fas fa-th"></i>

@@ -97,6 +97,12 @@
                   </div>
                  </div>
                 </div>
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <input type="number" class="form-control" v-model="form.sallary" placeholder="Besaran Gaji">
+                    <small class="text-danger" v-if="errors.sallary">{{ errors.sallary[0] }}</small>
+                  </div>
+                </div>
               </div>
               <div class="form-group">
                 <textarea v-model="form.address" class="form-control" cols="15" rows="5" placeholder="Alamat"></textarea>
@@ -145,6 +151,7 @@ export default {
         umur: '',
         gender: '',
         phone: '',
+        sallary: '',
         joindate: '',
         photo: '',
         newphoto: '',

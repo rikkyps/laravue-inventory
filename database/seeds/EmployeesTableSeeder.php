@@ -18,6 +18,7 @@ class EmployeesTableSeeder extends Seeder
             'umur' => '40',
             'gender' => 'L',
             'phone' => '082123123123',
+            'sallary' => '4000000',
             'joindate' => '2020-12-12',
             'address' => 'Cikasarung',
             'photo' => 'images/user-icon.png'

@@ -21,6 +21,7 @@ class CreateEmployeesTable extends Migration
             $table->enum('gender', ['L', 'P']);
             $table->string('umur');
             $table->string('phone');
+            $table->integer('sallary');
             $table->date('joindate');
             $table->string('photo')->nullable();
             $table->text('address');
