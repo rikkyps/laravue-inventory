@@ -20,70 +20,6 @@
     <!-- Main content -->
     <section class="content">
       <div class="container-fluid">
-        <!-- Small boxes (Stat box) -->
-        <div class="row">
-          <div class="col-lg-3 col-6">
-            <!-- small box -->
-            <div class="small-box bg-info">
-              <div class="inner">
-                <h3>150</h3>
-
-                <p>New Orders</p>
-              </div>
-              <div class="icon">
-                <i class="ion ion-bag"></i>
-              </div>
-              <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
-            </div>
-          </div>
-          <!-- ./col -->
-          <div class="col-lg-3 col-6">
-            <!-- small box -->
-            <div class="small-box bg-success">
-              <div class="inner">
-                <h3>53<sup style="font-size: 20px">%</sup></h3>
-
-                <p>Bounce Rate</p>
-              </div>
-              <div class="icon">
-                <i class="ion ion-stats-bars"></i>
-              </div>
-              <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
-            </div>
-          </div>
-          <!-- ./col -->
-          <div class="col-lg-3 col-6">
-            <!-- small box -->
-            <div class="small-box bg-warning">
-              <div class="inner">
-                <h3>44</h3>
-
-                <p>User Registrations</p>
-              </div>
-              <div class="icon">
-                <i class="ion ion-person-add"></i>
-              </div>
-              <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
-            </div>
-          </div>
-          <!-- ./col -->
-          <div class="col-lg-3 col-6">
-            <!-- small box -->
-            <div class="small-box bg-danger">
-              <div class="inner">
-                <h3>65</h3>
-
-                <p>Unique Visitors</p>
-              </div>
-              <div class="icon">
-                <i class="ion ion-pie-graph"></i>
-              </div>
-              <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
-            </div>
-          </div>
-          <!-- ./col -->
-        </div>
-        <!-- /.row -->
         <!-- Main row -->
         <div class="row">
           <div class="col-md-12">
@@ -100,6 +36,104 @@
           </div>
         </div>
         <!-- /.row (main row) -->
+        <!-- Small boxes (Stat box) -->
+        <div class="row">
+          <div class="col-lg-3 col-6">
+            <!-- small box -->
+            <div class="small-box bg-info">
+              <div class="inner">
+                <h3>Rp. {{ data.todaySaleAmount }}</h3>
+
+                <p>Total Pendapatan Hari Ini</p>
+              </div>
+              <div class="icon">
+                <i class="ion ion-bag"></i>
+              </div>
+            </div>
+          </div>
+          <!-- ./col -->
+          <div class="col-lg-3 col-6">
+            <!-- small box -->
+            <div class="small-box bg-success">
+              <div class="inner">
+                <h3>Rp. {{ data.todayIncome }}</h3>
+
+                <p>Omzet Hari Ini</p>
+              </div>
+              <div class="icon">
+                <i class="ion ion-stats-bars"></i>
+              </div>
+            </div>
+          </div>
+          <!-- ./col -->
+          <div class="col-lg-3 col-6">
+            <!-- small box -->
+            <div class="small-box bg-warning">
+              <div class="inner">
+                <h3>{{ data.todaySales }} Penjualan</h3>
+
+                <p>Penjualan Hari Ini</p>
+              </div>
+              <div class="icon">
+                <i class="ion ion-person-add"></i>
+              </div>
+            </div>
+          </div>
+          <!-- ./col -->
+          <div class="col-lg-3 col-6">
+            <!-- small box -->
+            <div class="small-box bg-danger">
+              <div class="inner">
+                <h3>Rp. {{ data.todayExpenses }}</h3>
+
+                <p>Total Pengeluaran Hari Ini</p>
+              </div>
+              <div class="icon">
+                <i class="ion ion-pie-graph"></i>
+              </div>
+            </div>
+          </div>
+          <!-- ./col -->
+        </div>
+        <div class="row">
+          <div class="col-md-12">
+            <div class="card card-info">
+              <div class="card-header">
+                <h3 class="card-title">Data Produk Kosong</h3>
+              </div>
+              <div class="card-body">
+                <table class="table table-bordered table-striped">
+                  <thead>
+                    <tr>
+                      <th>Nama Produk</th>
+                      <th>Barcode</th>
+                      <th>Image</th>
+                      <th>Kategori</th>
+                      <th>Harga</th>
+                      <th>Stok</th>
+                      <th>Status</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr v-if="!items.length">
+                      <td colspan="7" align="center">Tidak ada produk kosong</td>
+                    </tr>
+                    <tr v-for="item in items" :key="item.id">
+                      <td>{{ item.name }}</td>
+                      <td>{{ item.barcode }}</td>
+                      <td align="center"><img :src="'/'+item.image" style="width: 50px; height: 50px;"></td>
+                      <td>{{ item.category.name }}</td>
+                      <td>{{ item.sellPrice }}</td>
+                      <td>{{ item.qty }}</td>
+                      <td><span class="badge badge-danger">Stock Out</span></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- /.row -->
       </div><!-- /.container-fluid -->
     </section>
     <!-- /.content -->
@@ -112,6 +146,8 @@ export default {
     this.$Progress.finish()
   },
   created() {
+    this.getItemStockOut()
+    this.getTodaySales()
     this.$Progress.start()
     if(!User.loggedIn()){
       this.$router.push({name: 'login'})
@@ -121,6 +157,33 @@ export default {
   data() {
     return {
       name: '',
+      items: [],
+      data: {
+        todaySaleAmount: '',
+        todayIncome: '',
+        todayExpenses: '',
+        todaySales: ''
+      }
+    }
+  },
+  methods: {
+    getTodaySales(){
+      axios.get('/api/todaysales')
+        .then(res => {
+          this.data = res.data
+        })
+        .catch(err => {
+          console.log(err.response.data)
+        })
+    },
+    getItemStockOut(){
+      axios.get('/api/stockout')
+        .then(res =>{
+          this.items = res.data
+        })
+        .then(err => {
+          console.log(err.response.data)
+        })
     }
   }
 }

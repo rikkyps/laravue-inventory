@@ -54,6 +54,9 @@ Vue.component(HasError.name, HasError)
 Vue.component(AlertError.name, AlertError)
 window.Form = Form
 
+//Reload function to be a globally
+window.Reload = new Vue()
+
 
 const router = new VueRouter({
     mode: 'history',

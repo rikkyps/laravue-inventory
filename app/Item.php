@@ -30,4 +30,14 @@ class Item extends Model
     {
         return $this->belongsTo(Category::class);
     }
+
+    public function poses()
+    {
+        return $this->hasMany(Pos::class);
+    }
+
+    public function sales()
+    {
+        return $this->belongsToMany('App\Sale', 'item_sale', 'item_id', 'sale_id');
+    }
 }

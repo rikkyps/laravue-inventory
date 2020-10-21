@@ -39,11 +39,29 @@ let AllSallaries = require('./components/sallaries/index.vue').default;
 let ShowSallaries = require('./components/sallaries/view.vue').default;
 let EditSallaries = require('./components/sallaries/edit.vue').default;
 
+//Stocks Routes
+let ShowStocks = require('./components/items/stock.vue').default;
+let AddStocks = require('./components/items/addstock.vue').default;
+
+//Customers Routes
+let ShowCustomers = require('./components/customers/index.vue').default;
+let StoreCustomers = require('./components/customers/create.vue').default;
+let EditCustomers = require('./components/customers/edit.vue').default;
+
+//Pos Routes
+let Pos = require('./components/pos/pos.vue').default;
+
+//sales Routes
+let TodaySales = require('./components/sales/index.vue').default;
+let ViewSales = require('./components/sales/view.vue').default;
+let SearchSales = require('./components/sales/search.vue').default;
+
 export const routes = [
   { path: '/', component: Login, name: 'login' },
   { path: '/register', component: Register, name: 'register' },
   { path: '/forget', component: Forget, name: 'forget' },
   { path: '/logout', component: Logout, name: 'logout' },
+  
   { path: '/home', component: Home, name: 'home' },
 
   { path: '/employees', component: ShowEmployees, name: 'show-employees' },
@@ -71,4 +89,22 @@ export const routes = [
   { path: '/sallaries', component: AllSallaries, name: 'all-sallaries' },
   { path: '/sallaries/:id', component: ShowSallaries, name: 'view-sallaries' },
   { path: '/sallaries/edit/:id', component: EditSallaries, name: 'edit-sallaries' },
+
+  { path: '/stocks', component: ShowStocks, name: 'show-stocks' },
+  { path: '/stocks/:id', component: AddStocks, name: 'add-stocks' },
+
+  { path: '/customer', component: ShowCustomers, name: 'show-customers' },
+  { path: '/customer/create', component: StoreCustomers, name: 'store-customers'},
+  { path: '/customer/:id', component: EditCustomers, name: 'edit-customers'},
+
+  { path: '/pos', component: Pos, name: 'pos' },
+
+  { path: '/sales', component: TodaySales, name: 'today-sales' },
+  { path: '/sales/:id', component: ViewSales, name: 'view-sales' },
+  { path: '/sale/cari', component: SearchSales, name: 'search-sales' },
+
+
+
+
+
 ]

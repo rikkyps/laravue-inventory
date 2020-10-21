@@ -140,4 +140,24 @@ class ItemController extends Controller
         }
         return response()->json(['msg' => 'Data berhasil dihapus!']);
     }
+
+    public function getStock($id)
+    {
+        return Item::find($id);
+    }
+
+    public function addStock(Request $request, $id)
+    {
+        $validator = $request->validate([
+            'qty' => 'required'
+        ]);
+
+        $data = Item::find($id);
+        $data->update([
+            'qty' => $request->qty
+        ]);
+
+        return response()->json(['msg' => 'Stock produk berhasil diubah']);
+
+    }
 }
